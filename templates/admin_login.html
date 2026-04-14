@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Admin Login</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  background:#06060a;color:#e8e8f0;
+  font-family:'DM Mono',monospace;
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  background-image:radial-gradient(ellipse 60% 60% at 50% 50%, rgba(124,106,255,.08), transparent);
+}
+.card{
+  background:#0f0f18;border:1px solid rgba(255,255,255,.07);
+  border-radius:12px;padding:2.5rem;width:360px;
+}
+.logo{
+  font-family:'Syne',sans-serif;font-weight:800;font-size:1.5rem;
+  background:linear-gradient(135deg,#7c6aff,#ff6b9d);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  margin-bottom:.4rem;
+}
+.subtitle{font-size:.72rem;color:#7070a0;letter-spacing:.1em;text-transform:uppercase;margin-bottom:2rem;}
+label{font-size:.72rem;color:#7070a0;letter-spacing:.08em;text-transform:uppercase;display:block;margin-bottom:.4rem;}
+input{
+  width:100%;background:#06060a;border:1px solid rgba(255,255,255,.1);
+  color:#e8e8f0;padding:.8rem 1rem;border-radius:6px;font-family:'DM Mono',monospace;
+  font-size:.85rem;outline:none;transition:border-color .2s;margin-bottom:1.2rem;
+}
+input:focus{border-color:#7c6aff;}
+.btn{
+  width:100%;background:linear-gradient(135deg,#7c6aff,#ff6b9d);
+  color:#fff;border:none;padding:.9rem;border-radius:6px;
+  font-family:'DM Mono',monospace;font-size:.85rem;cursor:pointer;
+  transition:opacity .2s;letter-spacing:.05em;
+}
+.btn:hover{opacity:.85;}
+.error{background:rgba(255,107,157,.1);border:1px solid rgba(255,107,157,.3);color:#ff6b9d;padding:.7rem 1rem;border-radius:6px;font-size:.78rem;margin-bottom:1rem;}
+.back{display:block;text-align:center;margin-top:1.2rem;font-size:.72rem;color:#7070a0;text-decoration:none;transition:color .2s;}
+.back:hover{color:#7c6aff;}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="logo">Admin Panel</div>
+  <div class="subtitle">Portfolio CMS</div>
+  {% if error %}<div class="error">{{ error }}</div>{% endif %}
+  <form method="POST">
+    <label>Username</label>
+    <input type="text" name="username" required autocomplete="off"/>
+    <label>Password</label>
+    <input type="password" name="password" required/>
+    <button class="btn" type="submit">Sign In →</button>
+  </form>
+  <a class="back" href="/">← Back to Portfolio</a>
+</div>
+</body>
+</html>
